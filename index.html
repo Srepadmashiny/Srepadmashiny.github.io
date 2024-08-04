@@ -106,57 +106,70 @@
 					</section>
 
 				<!-- Three -->
-					<section id="three" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Get in touch</h2>
-							<p>Send me a message or a Hi :)</p>
-							<div class="split style1">
-								<section>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="name">Name</label>
-												<input type="text" name="name" id="name" />
-											</div>
-											<div class="field half">
-												<label for="email">Email</label>
-												<input type="text" name="email" id="email" />
-											</div>
-											<div class="field">
-												<label for="message">Message</label>
-												<textarea name="message" id="message" rows="5"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><a href="" class="button submit">Send Message</a></li>
-										</ul>
-									</form>
-								</section>
-								<section>
-									<ul class="contact">
-			
-										<li>
-											<h3>Email</h3>
-											<a href="#">padmashinyk@gmail.com</a>
-										</li>
-										<li>
-											<h3>Phone</h3>
-											<span>+91 7200480231</span>
-										</li>
-										<li>
-											<h3>Social</h3>
-											<ul class="icons">
-								
-												
-												<li><a href="https://github.com/Srepadmashiny" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-												<li><a href="https://www.linkedin.com/in/srepadmashiny-k/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-											</ul>
-										</li>
-									</ul>
-								</section>
-							</div>
-						</div>
-					</section>
+<section id="three" class="wrapper style1 fade-up">
+    <div class="inner">
+        <h2>Get in touch</h2>
+        <p>Send me a message or a Hi :)</p>
+        <div class="split style1">
+            <section>
+                <form id="emailForm" onsubmit="sendEmail(event)">
+                    <div class="fields">
+                        <div class="field half">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" required />
+                        </div>
+                        <div class="field half">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" required />
+                        </div>
+                        <div class="field">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" rows="5" required></textarea>
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><button type="submit" class="button submit">Send Message</button></li>
+                    </ul>
+                </form>
+            </section>
+            <section>
+                <ul class="contact">
+                    <li>
+                        <h3>Email</h3>
+                        <a href="#">padmashinyk@gmail.com</a>
+                    </li>
+                    <li>
+                        <h3>Phone</h3>
+                        <span>+91 7200480231</span>
+                    </li>
+                    <li>
+                        <h3>Social</h3>
+                        <ul class="icons">
+                            <li><a href="https://github.com/Srepadmashiny" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                            <li><a href="https://www.linkedin.com/in/srepadmashiny-k/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</section>
+
+<script>
+    function sendEmail(event) {
+        event.preventDefault(); // Prevent form submission
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        const subject = encodeURIComponent(`Message from ${name}`);
+        const body = encodeURIComponent(`You have received a new message from ${name} (${email}):\n\n${message}`);
+
+        window.location.href = `mailto:padmashinyk@gmail.com?subject=${subject}&body=${body}`;
+    }
+</script>
+
 
                 <!-- four -->
 					<section id="four" class="wrapper style2 spotlights">
@@ -177,9 +190,7 @@
 					</section>
 
 			</div>
-			    
-
-
+		
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
