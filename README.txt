@@ -4,4 +4,5 @@ HTML
 CSS
 Google Analytics
 DNS
+Javascript
 Visit https://srepadmashiny.tech/ to view the website
